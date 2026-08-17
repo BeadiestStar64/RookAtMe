@@ -1,0 +1,19 @@
+CompileFlags:
+  Add:
+    - "-I/usr/local/cuda/include"
+
+---
+
+If:
+  PathMatch: .*\.c
+CompileFlags:
+  Add:
+    - "-xc"
+
+---
+
+If:
+  PathMatch: .*\.h
+CompileFlags:
+  Add:
+    - "-xc-header"
