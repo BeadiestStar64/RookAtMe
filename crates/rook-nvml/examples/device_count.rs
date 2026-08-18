@@ -5,7 +5,7 @@ fn main() -> Result<(), anyhow::Error> {
 
     let device_count = nvml.device_count()?;
 
-    println!("Detected NVIDIA GPUs: {}", device_count);
+    println!("Detected NVIDIA GPUs: {device_count}");
 
     Ok(())
 }
