@@ -1,0 +1,30 @@
+BasedOnStyle: LLVM
+
+# 関数の引数が1行に収まらない場合は、開き括弧の次の行からブロック状に配置する
+AlignAfterOpenBracket: true
+BreakAfterOpenBracketFunction: true
+BreakBeforeCloseBracketFunction: true
+ContinuationIndentWidth: 2
+
+# struct配列の初期化要素を列方向に整列しない
+AlignArrayOfStructures: None
+
+# 連続する代入文の '=' を縦に揃えない
+AlignConsecutiveAssignments: None
+
+# 行末コメントを整列する
+AlignTrailingComments:
+  Kind: Always
+
+# 空ブロックのみ1行への短縮を許可する
+AllowShortBlocksOnASingleLine: Empty
+
+# ポインタは `型* p_変数名` にする
+PointerAlignment: Left
+DerivePointerAlignment: false
+
+IndentWidth: 2
+TabWidth: 2
+UseTab: Never
+
+ColumnLimit: 80
