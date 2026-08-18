@@ -12,6 +12,12 @@ fn main() {
 
     let cuda_include: PathBuf = cuda_path.join("include");
 
+    let nvml_stub_path: PathBuf = cuda_path
+        .join("targets")
+        .join("x86_64-linux")
+        .join("lib")
+        .join("stubs");
+
     cc::Build::new()
         .file("csrc/nvml_wrapper.c")
         .include("csrc")
@@ -21,6 +27,11 @@ fn main() {
         .compile("rook_nvml_wrapper");
 
     // NVMLへリンク
+    println!(
+        "cargo::rustc-link-search=native={}",
+        nvml_stub_path.display()
+    );
+
     println!("cargo::rustc-link-lib=dylib=nvidia-ml");
 
     println!("cargo::rerun-if-changed=csrc/nvml_wrapper.c");
