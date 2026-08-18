@@ -1,9 +1,7 @@
 BasedOnStyle: LLVM
 
-# 関数の引数が1行に収まらない場合は、開き括弧の次の行からブロック状に配置する
-AlignAfterOpenBracket: true
-BreakAfterOpenBracketFunction: true
-BreakBeforeCloseBracketFunction: true
+# 関数の引数などが1行に収まらない場合は、開き括弧の次の行からブロック状に配置する
+AlignAfterOpenBracket: BlockIndent
 ContinuationIndentWidth: 2
 
 # struct配列の初期化要素を列方向に整列しない
