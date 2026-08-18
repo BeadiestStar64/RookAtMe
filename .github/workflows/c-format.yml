@@ -15,5 +15,5 @@ jobs:
 
     - name: C formatting
       shell: bash
-      run: find crates -type f \( -name '*.c' -o -name '*.h' -o -name '*.cpp' -o -name '*.hpp' -o -name '*.cu' -o -name '*.cuh' \) -exec clang-format --dry-run --Werror {} +
+      run: find crates -type f \( -name '*.c' -o -name '*.h' -o -name '*.cpp' -o -name '*.hpp' -o -name '*.cu' -o -name '*.cuh' \) -exec clang-format-21 --dry-run --Werror {} +
          
