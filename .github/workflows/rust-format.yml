@@ -1,0 +1,20 @@
+name: Rust format
+
+on:
+  pull_request:
+  
+permissions:
+  contents: read
+
+jobs:
+  rust-format:
+    runs-on: ubuntu-26.04
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install rustfmt
+        run: rustup component add rustfmt
+
+      - name: Formatting
+        run: cargo fmt --all -- --check

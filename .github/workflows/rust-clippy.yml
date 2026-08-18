@@ -1,0 +1,21 @@
+name: Rust clippy
+
+on:
+  pull_request:
+  
+permissions:
+  contents: read
+
+jobs:
+  rust-clippy:
+    runs-on: ubuntu-26.04
+
+    steps:
+    - uses: actions/checkout@v7
+
+    - name: Install clippy
+      run: rustup component add clippy
+
+    - name: Run clippy
+      run: |
+        cargo clippy --workspace --all-targets --no-default-features -- -D warnings
