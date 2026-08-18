@@ -7,5 +7,9 @@ authors.workspace = true
 [dependencies]
 anyhow = { workspace = true }
 
+[features]
+default = ["native-nvml"]
+native-nvml = []
+
 [build-dependencies]
 cc = { workspace = true }
