@@ -1,0 +1,22 @@
+name: FFI Build
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  ffi-build:
+    runs-on: ubuntu-26.04
+
+    steps:
+    - uses: actions/checkout@v7
+
+    - name: Install NVML
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends libnvidia-ml-dev
+
+    - name: Build native FFI
+      run: cargo build --workspace --all-targets -F native-nvml
