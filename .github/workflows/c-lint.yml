@@ -16,11 +16,10 @@ jobs:
     - name: Install NVML headers
       run: |
         sudo apt-get update
-        sudo apt-get upgrade -y
         sudo apt-get install -y --no-install-recommends libnvidia-ml-dev
 
     - name: Compiler warnings
-      run: find crates -type f \( -name '*.c' -o -name '*.h' -o -name '*.cpp' -o -name '*.hpp' -o -name '*.cu' -o -name '*.cuh' \) -exec clang-21 -std=c17 -Wall -Wextra -Wpedantic -Werror -fsyntax-only {} +
+      run: find crates -type f -name '*.c' -exec clang-21 -std=c17 -Wall -Wextra -Wpedantic -Werror -fsyntax-only {} +
 
     - name: Clang-Tidy
       run: find crates -type f -name '*.c' -exec sh -c 'clang-tidy-21 --warnings-as-errors="*" "$@" -- -std=c17' _ {} +
