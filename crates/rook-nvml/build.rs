@@ -5,6 +5,11 @@ fn main() {
         .map(PathBuf::from)
         .unwrap_or_else(|| PathBuf::from("/usr/local/cuda"));
 
+    // `native-nvml` フィーチャーが無効なら、NVMLへのリンクを行わない
+    if env::var_os("CARGO_FEATURE_NATIVE_NVML").is_none() {
+        return;
+    }
+
     let cuda_include: PathBuf = cuda_path.join("include");
 
     cc::Build::new()
