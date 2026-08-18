@@ -17,6 +17,9 @@ AlignTrailingComments:
 # 空ブロックのみ1行への短縮を許可する
 AllowShortBlocksOnASingleLine: Empty
 
+# 関数を1行で折りたたまない
+AllowShortFunctionsOnASingleLine: None
+
 # ポインタは `型* p_変数名` にする
 PointerAlignment: Left
 DerivePointerAlignment: false
